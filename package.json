@@ -2,10 +2,12 @@
 	"name": "lection-5",
 	"main": "server.js",
 	"dependencies": {
-		"express" : "latest",
+		"jade": "~0.35.0",
+    "express": "~3.4.4",
+    "stylus": "~0.40.2",
 		"mongoose" : "latest",
 		"body-parser" : "latest",
- 		"jade" : "latest",
-		"method-override" : "latest"
+		"method-override" : "latest",
+		"bower" : "latest"
 	}
 }

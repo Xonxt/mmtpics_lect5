@@ -1,37 +1,45 @@
 // подключение модулей
 var express = require('express');
-var app = express();
+var stylus = require('stylus');
 var bodyParser = require('body-parser');
-var config = require('./server/config/config');
 var methodOverride = require('method-override');
 
-var oauth2 = require('./server/auth/oauth2');
-require('./server/auth/auth');
-             
-var passport = require('passport');              
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-// запуск сервера на порту 8080
-app.listen(config.port, function(err) {
-  if (err) throw err;
-  console.log("Server started at port 8080!");
-});
+var app = express();       
+
+function compile(str, path) {
+  return stylus(str).set('filename', path);
+}
+
+app.set('views', __dirname + '/server/views');
+app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-//app.use(express.logger('dev')); // выводим все запросы со статусами в консоль
+app.use(stylus.middleware(
+  {
+    src: __dirname + '/public',
+    compile: compile
+  }
+));
+app.use(express.static(__dirname + '/public'));
 
-app.use(passport.initialize());
+// app.get('/partials/:partialPath', function(req, res) {
+//   res.render('partials/' + req.params.partialPath);
+// });
 
-app.post('/oauth/token', oauth2.token);
+app.get('*', function(req, res) {
+  //res.render('index');
+  res.sendfile('./server/views/index.html');
+});
 
-app.set('view engine', 'ejs');
-app.set('views', './server/views');
+var port = process.env.PORT || 8080;
 
-require('./server/routes/index')(app);
-require('./server/routes/api')(app);
-require('./server/routes/people')(app);
-
-// инициализировать Oauth
-
+// запуск сервера на порту 8080
+app.listen(port, function(err) {
+  if (err) throw err;
+  console.log("Listening on port " + port + "..." );
+});

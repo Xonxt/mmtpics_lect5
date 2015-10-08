@@ -1,0 +1,18 @@
+{
+  "name": "lect5",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Xonxt/mmtpics_lect5",
+  "authors": [
+    "Xonxt <kov.nikit@gmail.com>"
+  ],
+  "description": "lection 5 attempt",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-route": "latest",
+    "angular-new-router": "latest",
+    "jquery": "latest",
+    "toastr": "latest"
+  }
+}
