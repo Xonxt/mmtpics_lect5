@@ -1,0 +1,11 @@
+﻿{
+	"name": "lection-5",
+	"main": "server.js",
+	"dependencies": {
+		"express" : "latest",
+		"mongoose" : "latest",
+		"body-parser" : "latest",
+ 		"jade" : "latest",
+		"method-override" : "latest"
+	}
+}
