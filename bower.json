@@ -8,6 +8,7 @@
   "description": "lection 5 attempt",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "latest",
     "angular": "latest",
     "angular-resource": "latest",
     "angular-route": "latest",

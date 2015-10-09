@@ -1,13 +1,4 @@
-doctype html
-html
-  head
-    link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
-    link(rel="stylesheet", href="/css/bootstrap.css")
-    link(rel="stylesheet", href="/vendor/toastr/toastr.css")
-    link(rel="stylesheet", href="/css/site.css")
-  body(ng-app="app", ng-strict-di, ng-controller="AppController as app")
-    block main-content 
-      div(class="page-host")
-        ng-viewport    
-    include ../includes/scripts
+extends ../includes/layout
 
+block main-content 
+  div(ng-viewport)

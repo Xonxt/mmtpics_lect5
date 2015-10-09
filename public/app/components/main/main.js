@@ -1,7 +1,7 @@
 angular.module('app.main', []).
-    controller('mainCtrl', mainCtrl);
+    controller('MainController', MainController);
 
-function mainCtrl() { 
-  alert('yo!'); 
+function MainController() { 
+  //alert('yo');
   this.myVar = 'Hello, Angular 1.4.9!'; 
 }

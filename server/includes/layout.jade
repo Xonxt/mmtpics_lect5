@@ -1,10 +1,11 @@
 doctype html
 html
 	head
+		title #{header}
 		link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
-		link(rel="stylesheet", href="/css/bootstrap.css")
+		link(rel="stylesheet", href="/vendor/bootstrap/dist/css/bootstrap.css")
 		link(rel="stylesheet", href="/vendor/toastr/toastr.css")
 		link(rel="stylesheet", href="/css/site.css")
-	body(ng-app="app", ng-strict-di, ng-controller="mainCtrl")
+	body(ng-app="app", ng-strict-di, ng-controller="AppController as app")
 		block main-content
 		include scripts
