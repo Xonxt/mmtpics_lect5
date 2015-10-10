@@ -8,6 +8,8 @@
 		"mongoose" : "latest",
 		"body-parser" : "latest",
 		"method-override" : "latest",
-		"bower" : "latest"
+		"bower" : "latest",
+		"morgan" : "latest",
+		"winston" : "latest"
 	}
 }

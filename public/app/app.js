@@ -6,6 +6,6 @@ angular.module('app', ['app.main', 'ngNewRouter'])
 function AppController($router) {   
   
   $router.config([
-   { path: '/', component: 'main'}
+   { path: '/', component: 'main', templateUrl: 'main.jade'}
   ]);
 }
