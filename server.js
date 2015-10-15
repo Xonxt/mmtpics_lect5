@@ -2,7 +2,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var winston = require("winston");
 var morgan = require("morgan");
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -24,15 +23,8 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // установим папку public как статическую
 app.use(express.static(__dirname + '/public'));
 
-// настроим папку для jade-partials'ов
-app.get('/partials/:partialPath', function(req, res) {
-  res.render('partials/' + req.params.partialPath);
-});
-
-// точка входа
-app.get('*', function(req, res) {
-  res.render('index', {header: "Example of AngularJS routing"});
-});
+require('./server/routes/index')(app);
+require('./server/routes/api')(app);
 
 // порт приложения
 var port = process.env.PORT || 8080;

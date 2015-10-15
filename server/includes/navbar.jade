@@ -1,0 +1,11 @@
+div(class="navbar navbar-default", ng-controller="NavController")
+	ul(class="nav navbar-nav")
+		li(ng-class="{ active: isActive('/')}")
+			a(href="/") Домой
+		li(ng-class="{ active: isActive('/people')}")
+			a(href="/people") Список людей
+		li(ng-class="{ active: isActive('/people/1')}")
+			a(href="/people/1") Человек 1
+		li(ng-class="{ active: isActive('/people/2')}")
+			a(href="/people/2") Человек 2
+			
