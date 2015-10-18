@@ -11,13 +11,16 @@ personModule.factory('personService', ['$http', function($http) {
   }  
 }]);
 
-personModule.controller('PersonDetailedController', ['$routeParams', '$scope', 'personService', PersonDetailedController]);
+personModule.controller('PersonDetailedController', ['$routeParams', 'personService', PersonDetailedController]);
 
-function PersonDetailedController($routeParams, $scope, personService) {
+function PersonDetailedController($routeParams, personService) {
       
-  var id = $routeParams.id;
+   var personDetailed = this,
+        id = $routeParams.id;
+          
+  personDetailed.id = id;
   
   personService.get(id).then(function(res) {   
-    $scope.item = res.data;  
+    personDetailed.item = res.data;  
   });
 }

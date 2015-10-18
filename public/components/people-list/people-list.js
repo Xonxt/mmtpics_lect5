@@ -11,14 +11,15 @@ peopleModule.factory('peopleService', ['$http', function($http) {
   }  
 }]);
 
-peopleModule.controller('PeopleListController', ['$scope', 'peopleService', PeopleListController]);
+peopleModule.controller('PeopleListController', ['peopleService', PeopleListController]);
 
-function PeopleListController($scope, peopleService) {   
+function PeopleListController(peopleService) {   
   
-  this.myVar = "testing?"
+  var peopleList = this;
+  peopleList.myVar = "testing?"
   
   peopleService.get().then(function(res) {
-    $scope.list = res.data;    
+    peopleList.list = res.data;    
   });
 }
 
