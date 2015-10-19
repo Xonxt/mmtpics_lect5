@@ -1,5 +1,7 @@
+// модуль для вывода списка людей
 var peopleModule = angular.module('app.peopleList', []);
 
+// фабрика (сервис) для получения информации с базы данных через API
 peopleModule.factory('peopleService', ['$http', function($http) {
   return {
     get : function() {
@@ -11,15 +13,16 @@ peopleModule.factory('peopleService', ['$http', function($http) {
   }  
 }]);
 
+// контроллер модуля 'app.peopleList'
+// ЗАМЕТКА: обратить внимание на имя контроллера: 'app.peopleList' => 'PeopleListController'
 peopleModule.controller('PeopleListController', ['peopleService', PeopleListController]);
 
 function PeopleListController(peopleService) {   
   
   var peopleList = this;
-  peopleList.myVar = "testing?"
   
-  peopleService.get().then(function(res) {
-    peopleList.list = res.data;    
+  peopleService.get().then(function(result) {
+    peopleList.list = result.data;    
   });
 }
 
